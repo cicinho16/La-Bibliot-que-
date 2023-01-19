@@ -1,0 +1,235 @@
+
+/* La variable "--inherit" ne doit JAMAIS être déclarée */
+/* Seule la valeur de fallback (second attribut de la propriété css est appliqué ) est utilisée */
+/* Cette méthode applique la surcharge CSS uniquement dans les navigateurs supportant les variables */
+
+.bande_blanche {
+	border-bottom: var( --inherit, 1px solid var( --gris2));
+}
+
+.barre_applis {
+	border: var( --inherit, 3px solid #777);
+}
+
+.bloc_applis {
+	margin-left: var( --inherit, 47px);
+	margin-right: var( --inherit, 47px);
+}
+
+.domaine h2 {
+	border: var( --inherit, 1px solid var( --gris2));
+}
+
+.domaine.active h2, .domaine h2:hover {
+	border-color: var( --inherit, #777);
+}
+
+.domaine.active::after {
+	bottom: var( --inherit, -13px);
+	left: var( --inherit, calc(50% - 25px));
+	border-left: var( --inherit, 25px solid transparent);
+	border-right: var( --inherit, 25px solid transparent);
+	border-bottom: var( --inherit, 13px solid #777);
+}
+
+.connexe {
+	border: var( --inherit, 1px solid var( --gris2));
+}
+
+.connexe li:not(:last-child) {
+	padding-right: var( --inherit, 0);
+	border-right: var( --inherit, 1px solid var( --gris2));
+}
+
+.tuile_fiche .titre, .tuile_fiche header,
+.tuile_indicateur .titre, .tuile_indicateur > header {
+	border-radius: var( --inherit, 4px 4px 0 0);
+	border-bottom: var( --inherit, 1px solid #ebebeb);
+}
+
+.tuile_fiche, .tuile_resultat {
+	border-radius: var( --inherit, 4px 4px 0 0);
+}
+
+.tableau_bords {
+	border-radius: var( --inherit, 0 0 4px 10px);
+}
+
+.tableau_bords th {
+	border-bottom: var( --th-border);
+}
+
+/* Liste des variables */
+:root {
+	/* général*/
+	--body-color: var( --grisdefaut);
+	--body-background: linear-gradient(to bottom, #199bb2 0,  #16b6d2 .3rem, #16b6d2 6rem, #f9f8f8 6rem, #f9f8f8 100%);
+	--body-bgcolor: #f9f8f8;
+	--regular-font-family: 'OpenSansRegular', arial, helvetica, sans-serif;
+	--bold-font-family: 'OpenSansBold',arial,helvetica,sans-serif;
+
+	/* couleurs */
+	--pos: #03A698;
+	--neg: #E32B3A;
+	--avg: #FD7501;
+	--bleufonce: #1E4B72;
+	--bleuclair: #0ea1bb;
+	--saumon: #ff6f80;
+	--grisdefaut: #4e5b68;
+	--gris: #888888;
+	--grisfonce: #3f4856;
+	--gristitre: #5b6980;
+	--gris1: #F4F4F4;
+	--gris2: #DDD;
+	--gris3: #C8C8C8;
+	--gris4: #f9f8f8;
+	--gris5: #eff9fd;
+	--bgrose: #ffeaf3;
+	--bgvert: #d3fff3;
+	--bgjaune: #FCF8E3;
+	--bgbleu: #e0f9fd;
+
+	/* entete */
+	--entete-color:#fff;
+	--bandeblanche-bgcolor:#fff;
+	--bandeau-color: var( --gristitre);
+
+	/* accueil, domaines et connexe*/
+	--domaineactif-bgcolor: #777;
+	--domaineactif-color: #fff;
+	--domaine-bg: none repeat scroll 0% 0% #fff;
+	--domaine-color: var( --gristitre);
+	--domaine-radius: 4px;
+	--barreappli-bgcolor: #fff;
+	--barreappli-radius: 10px;
+	--tuileappli-bgcolor: var( --gris4);
+	--tuileappli-color: var( --gristitre);
+	--tuileappli-pic-color: var( --gris3);
+	--tuileappli-border: 2px solid var( --bleuclair);
+	--tuileappli-border-hover: 2px solid var( --saumon);
+	--tuileappli-head-bgcolor: var( --bleuclair);
+	--tuileappli-head-bgcolor-hover: var( --saumon);
+	--tuileappli-head-color: #fff;
+	--tuileappli-head-color-hover: #fff;
+	--tuileappli-radius: 4px;
+	--connexe-shadow-color: transparent;
+	--connexe-tuile-border-color: var( --gris3); /*bordures des onglets internes à une tuile*/
+
+
+	/* tuiles */
+	--tuile-radius: 4px;
+	--tuile-border: 1px solid var( --gris2);
+	--tuile-header-bgcolor: #fff;
+	--tuile-h2-color: var(--gristitre);
+	--tuile-h3-color: var( --gristitre);
+	--initiale-bgcolor: rgba(255, 255, 255, 0.3);
+	--initiale-color: #fff;
+	--recherche-bgcolor: #fff;
+	--recherche-cesure-color: inherit;
+	--recherche-cesure-bgcolor: var( --gris2);
+	--recherche-separateur: 1px solid var( --gris2); /*ligne sous l'entête*/
+	--fiche-bgcolor: #fff;
+	--indicateur-bgcolor: #FFF;
+	--modale-bgcolor: #fff;
+	--modale-border:1px solid var( --bleuclair);
+	--modale-radius: 4px;
+	--tuile-shadow-color: transparent;
+
+	/* tableaux */
+	--table-bgcolor:#fff;
+	--th-color: var( --grisfonce);
+	--th-grpcol-color: var( --gristitre);
+	--th-bgcolor: var( --gris4);
+	--th-border: 1px solid var( --gris2);
+	--td-color: inherit;
+	--td-bgcolor: #fff;
+	--td-border: 1px solid var( --gris2);
+	--td-lien-hover: 1px solid var(--grisfonce);
+	--tr-alterne-bgcolor: var( --gris5);
+	--tr-selection-bgcolor: #fff9c4;
+	--tr-hover-bgcolor: #E9F1F5;
+	--tr-surcesure-color: #fff;
+	--tr-surcesure-bgcolor: var( --bleuclair);
+	--tr-cesure-color: inherit;
+	--tr-cesure-bgcolor: var( --bgbleu);
+	--total-color:var( --bleufonce);
+	--total-bgcolor:var( --gris4);
+	--total-border-color:var( --gris2);
+	--total-separateur: 1px solid var( --bleufonce);
+
+	/* formulaire */
+	--input-border-color: var( --gris3);
+	--input-border-color-hover: var( --bleufonce);
+	--selectglobal-color:#fff;
+	--selectglobal-bgcolor:var( --bleuclair);
+
+	/* liens et boutons */
+	--lien-color:var( --bleuclair);
+	--lien-color-hover:var( --saumon);
+	/* boutons principaux */
+	--btn-radius:20px;
+	--btn-color:#fff;
+	--btn-color-hover:#fff;
+	--btn-bgcolor: var( --bleuclair);
+	--btn-bgcolor-hover: var( --saumon);
+	--btn-border: 1px solid var( --bleuclair);
+	--btn-border-hover: 1px solid var( --saumon);
+	/* boutons discrets*/
+	--btndiscret-color: var( --bleuclair);
+	--btndiscret-color-hover:var( --saumon);
+	--btndiscret-bgcolor: #fff;
+	--btndiscret-bgcolor-hover: #fff;
+	--btndiscret-border: 1px solid var( --bleuclair);
+	--btndiscret-border-hover: 1px solid var( --saumon);
+	/* boutons désactivés"*/
+	--btndisabled-color: var(--gristitre);
+	--btndisabled-bgcolor: #fff;
+	--btndisabled-border: 1px solid var( --gris2);
+	/* boutons secondaires */
+	--act-radius:4px;
+	--act-color: var( --bleuclair);
+	--act-color-hover: var( --saumon);
+	--act-bordercolor: var( --bleuclair);
+	--act-bordercolor-hover: var( --saumon);
+	--actdisabled-color: var( --saumon);
+	--actdisabled-bordercolor:#fff;
+	/* boutons secondaires et liens dans les césures et surcésures : même couleur pour la bordure et le texte */
+	--act-cesure-color: #FFF;
+	--act-surcesure-color: #FFF;
+	--act-surcesure-color-hover: #FFF;
+
+
+	/* messages */
+	--msg-radius: 4px;
+	--msg-info-color: var( --bleuclair);
+	--msg-info-pic-color: var( --bleuclair);
+	--msg-info-bgcolor: var( --bgbleu);
+	--msg-confirm-color: var( --pos);
+	--msg-confirm-pic-color: var( --pos);
+	--msg-confirm-bgcolor: var(--bgvert);
+	--msg-error-color: var( --neg);
+	--msg-error-pic-color: var( --neg);
+	--msg-error-bgcolor: var(--bgrose);
+	--notif-color: #fff;
+	--notif-bgcolor: var( --bleuclair);
+	--notif-pos-color: #fff;
+	--notif-pos-bgcolor: var( --pos);
+	--notif-neg-color: #fff;
+	--notif-neg-bgcolor: var( --neg);
+	--notif-avg-color:#fff;
+	--notif-avg-bgcolor: var( --avg);
+
+	/* divers */
+	--badge-radius: 15px;
+	--pagination-span-color: var( --gris);
+	--pagination-a-color: var( --bleuclair);
+	--pagination-a-color-hover: var( --saumon);
+	--definitions-color: var( --gristitre);
+	--tri-color: var( --gris2);
+	--tri-actif-color: var( --bleuclair);
+	--tri-color--hover: var( --saumon);
+	--plier-color: var( --bleuclair);
+	--plier-color-hover: var( --saumon);
+
+
+}

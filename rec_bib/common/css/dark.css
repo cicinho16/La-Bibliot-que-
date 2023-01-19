@@ -1,0 +1,280 @@
+/* La variable "--inherit" ne doit JAMAIS être déclarée */
+/* Seule la valeur de fallback (second attribut de la propriété css est appliqué ) est utilisée */
+/* Cette méthode applique la surcharge CSS uniquement dans les navigateurs supportant les variables */
+
+.tuile_resultat {
+	background-color: var( --inherit, var(--gris1));
+}
+
+.tuile_resultat .titre, .tuile_resultat > header {
+	background-color: var( --inherit, var(--gris2));
+}
+
+.tuile_fiche .pied, .tuile_fiche > footer,
+.tuile_indicateur .titre, .tuile_indicateur > header {
+	background-color: var( --inherit, var(--gris2));
+}
+
+.pic_info.bulle, .pic_aide.bulle {
+	background-color: var( --inherit, var( --jaunefonce));
+}
+
+.badge {
+	background: #111;
+}
+
+.select2-container--default .select2-selection--single, .select2-dropdown,
+.select2-container--default .select2-selection--single .select2-selection__rendered,
+.select2-container--default .select2-selection--multiple {
+	background-color: var( --inherit, var( --gris5));
+	color: var( --inherit, #fff);
+}
+
+.select2-container--default .select2-results__option[aria-selected="true"] {
+	background-color: var( --inherit, var(--gris2));
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+	background-color: var( --inherit, var(--brun));
+}
+
+input, select, textarea{
+	background-color: var( --inherit, var( --gris5));
+	color: var( --inherit, #fff);
+}
+
+input:focus, select:focus, textarea:focus,
+input:active, select:active, textarea:active {
+	color: var( --inherit, #fff);
+}
+
+dialog {
+	color: var( --inherit, var(--grisdefaut))
+}
+
+.ui-datepicker {
+	background-color: var( --inherit, var(--gris2));
+}
+
+.pic_alerte.bulle:before {
+	color:#fff;
+}
+
+
+
+/* Surcharge de la classe .demo et .syntaxhighlighter utile pour les ecrans du design kit uniquement */
+
+body .demo code {
+	background-color: var( --inherit, var( --gris2));
+	color: var( --inherit, #ddd);
+}
+
+body .demo .grille_demo .col_40 {
+	background-color: var( --inherit, var( --gris2));
+}
+
+body .syntaxhighlighter {
+	background-color: var( --inherit, var( --gris2));
+}
+
+body .syntaxhighlighter .gutter,
+body .syntaxhighlighter .plain, body .syntaxhighlighter .plain a {
+	color: var( --inherit, #ddd);
+}
+
+body .syntaxhighlighter .preprocessor {
+	color: var( --inherit, #aaa);
+}
+body .syntaxhighlighter .string, .syntaxhighlighter .string a {
+	color: var( --inherit, #4bb9e8);
+}
+
+body .syntaxhighlighter .keyword {
+	color: var( --inherit, #e156b8);
+}
+
+body .syntaxhighlighter .comments, body .syntaxhighlighter .comments a {
+	color: var( --inherit, #EE9A52);
+}
+
+
+
+
+/* Liste des variables */
+:root {
+
+	/* général*/
+	--body-color: var(--grisdefaut);
+	--body-background: none;
+	--body-bgcolor: #101010;
+	--regular-font-family: 'OpenSansRegular', arial, helvetica, sans-serif;
+	--bold-font-family: 'OpenSansBold',arial,helvetica,sans-serif;
+
+	/* couleurs */
+	--pos: #03A698;
+	--neg: #F73E68;
+	--avg: #FD7501;
+	--bleufonce: #1E4B72;
+	--bleuclair: #33aae6; /*#1190cf;*/
+	--violet: #e156b8; /*#cf1196;*/
+	--jauneclair:#feca80;
+	--jaunefonce:#c69d65;
+	--jaunefort:#fdba0d;
+	--brun:#b6870f;
+	--grisdefaut: #efefef;
+	--gris: #b9b9b9;
+	--grisfonce: #363636;
+	--gristitre: #efefef;
+	--gris1: #363636;
+	--gris2: #464646;
+	--gris3: #5e5e5e;
+	--gris4: #242424;
+	--gris5: #2b2a2a;
+	--bgrose: #c64d63;
+	--bgvert: #1D5C00;
+	--bgjaune: #756303;
+	--bgbleu: #0D4A73;
+
+	/* entete */
+	--entete-color:var(--jaunefort);
+	--bandeblanche-bgcolor:var(--gris3);
+	--bandeau-color: var(--grisdefaut);
+
+	/* accueil, domaines et connexe*/
+	--domaineactif-bgcolor: var(--gris3);
+	--domaineactif-color: var(--grisdefaut);
+	--domaine-bg: none repeat scroll 0% 0% var(--grisfonce);
+	--domaine-color: var(--grisdefaut);
+	--domaine-radius: 4px;
+	--barreappli-bgcolor: var(--grisfonce);
+	--barreappli-radius: 4px;
+	--tuileappli-bgcolor: var(--grisfonce);
+	--tuileappli-color: var(--grisdefaut);
+	--tuileappli-pic-color: var(--grisdefaut);
+	--tuileappli-border: 2px solid var(--gris3);
+	--tuileappli-border-hover: 2px solid var( --jaunefonce);
+	--tuileappli-head-bgcolor: var(--gris3);
+	--tuileappli-head-bgcolor-hover: var( --jaunefonce);
+	--tuileappli-head-color: var(--grisdefaut);
+	--tuileappli-head-color-hover: var(--grisdefaut);
+	--tuileappli-radius: 4px;
+	--connexe-shadow-color: transparent;
+	--connexe-tuile-border-color: var( --gris3); /*bordures des onglets internes à une tuile*/
+
+
+	/* tuiles */
+	--tuile-radius: 4px;
+	--tuile-border: 1px solid var(--gris1);
+	--tuile-header-bgcolor: var(--gris2);
+	--tuile-h2-color: var(--grisdefaut);
+	--tuile-h3-color: var(--grisdefaut);
+	--initiale-bgcolor: var(--gris3);
+	--initiale-color: var(--grisdefaut);
+	--recherche-bgcolor: var(--gris2);
+	--recherche-cesure-color: var(--grisdefaut);
+	--recherche-cesure-bgcolor: var( --gris3);
+	--recherche-separateur: 1px solid var( --gris2); /*ligne sous l'entête*/
+	--fiche-bgcolor: var(--gris1);
+	--indicateur-bgcolor: var(--gris1);
+	--modale-bgcolor: #50555c;
+	--modale-border:none;
+	--modale-radius: 4px;
+	--tuile-shadow-color: transparent;
+
+	/* tableaux */
+	--table-bgcolor:transparent;
+	--th-color: var( --grisdefaut);
+	--th-grpcol-color: var( --gristitre);
+	--th-bgcolor:var(--gris2);
+	--th-border: 1px solid var( --gris2);
+	--td-color: var(--grisdefaut);
+	--td-bgcolor: transparent;
+	--td-border: 1px solid var( --gris2);
+	--td-lien-hover: 1px solid var(--jauneclair);
+	--tr-alterne-bgcolor: var( --gris5);
+	--tr-selection-bgcolor: #483608;
+	--tr-hover-bgcolor: var( --gris2);
+	--tr-surcesure-color: #fff;
+	--tr-surcesure-bgcolor: var( --bleufonce);
+	--tr-cesure-color: inherit;
+	--tr-cesure-bgcolor: #a07b1f;
+	--total-color:var( --brun);
+	--total-bgcolor:var( --gris5);
+	--total-border-color:var( --gris2);
+	--total-separateur: 1px solid var( --brun);
+
+	/* formulaire */
+	--input-border-color: var( --gris3);
+	--input-border-color-hover: var( --brun);
+	--selectglobal-color:#fff;
+	--selectglobal-bgcolor:var( --brun);
+
+	/* liens et boutons */
+	--lien-color: var(--jauneclair);
+	--lien-color-hover: var(--jaunefort);
+	/* boutons principaux */
+	--btn-radius:4px;
+	--btn-color:#fff;
+	--btn-color-hover:#fff;
+	--btn-bgcolor: var(--jaunefonce);
+	--btn-bgcolor-hover: var(--brun);
+	--btn-border: 1px solid var(--jaunefonce);
+	--btn-border-hover: 1px solid var(--brun);
+	/* boutons discrets*/
+	--btndiscret-color: #fff;
+	--btndiscret-color-hover:#fff;
+	--btndiscret-bgcolor: var(--gris3);
+	--btndiscret-bgcolor-hover: var(--brun);
+	--btndiscret-border: 1px solid var(--gris3);
+	--btndiscret-border-hover: 1px solid var(--brun);
+	/* boutons désactivés"*/
+	--btndisabled-color:#fff;
+	--btndisabled-bgcolor: var(--gris4);
+	--btndisabled-border: 1px solid var(--gris4);
+	/* boutons secondaires */
+	--act-radius:4px;
+	--act-color: var(--jauneclair);
+	--act-color-hover: var(--jaunefort);
+	--act-bordercolor: var(--jauneclair);
+	--act-bordercolor-hover: var(--jaunefort);
+	--actdisabled-color: var( --gris);
+	--actdisabled-bordercolor:var( --gris);
+	/* boutons secondaires et liens dans les césures et surcésures : même couleur pour la bordure et le texte */
+	--act-cesure-color: var( --grisfonce);
+	--act-surcesure-color: #FFF;
+	--act-surcesure-color-hover: #FFF;
+
+
+	/* messages */
+	--msg-radius: 4px;
+	--msg-info-color: var( --bleuclair);
+	--msg-info-pic-color: var( --bleuclair);
+	--msg-info-bgcolor: var( --bgbleu);
+	--msg-confirm-color: var( --pos);
+	--msg-confirm-pic-color: var( --pos);
+	--msg-confirm-bgcolor: #086056;
+	--msg-error-color: var( --neg);
+	--msg-error-pic-color: var( --neg);
+	--msg-error-bgcolor: #6f0911;
+	--notif-color: #fff;
+	--notif-bgcolor: var( --bgbleu);
+	--notif-pos-color: #fff;
+	--notif-pos-bgcolor: var( --pos);
+	--notif-neg-color: #fff;
+	--notif-neg-bgcolor: var( --neg);
+	--notif-avg-color:#fff;
+	--notif-avg-bgcolor: var( --avg);
+
+	/* divers */
+	--badge-radius: 15px;
+	--pagination-span-color: #fff;
+	--pagination-a-color: var( --jauneclair);
+	--pagination-a-color-hover: var( --jaunefort);
+	--definitions-color: var( --gristitre);
+	--tri-color: var( --jauneclair);
+	--tri-actif-color: var( --gristitre);
+	--tri-color--hover: var( --jaunefort);
+	--plier-color: var( --jauneclair);
+	--plier-color-hover: var( --jaunefort);
+
+}

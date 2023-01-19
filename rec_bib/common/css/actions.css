@@ -1,0 +1,573 @@
+/*********************************************************/
+/*  Pour les bouton et les liens d'actions avec pictos,
+fichier � appeler apres common.css */
+/*********************************************************/
+
+
+/***** Liens *****/
+.lien, a {
+	color: #07A;
+	cursor:pointer;
+	background-color: transparent;
+	-webkit-text-decoration-skip: objects;
+	transition: color .3s linear;
+}
+
+.lien {
+	border-bottom: 1px dotted #2D89AF;
+	line-height: 1.5em;
+}
+
+a:active,
+a:focus,
+a:hover,
+.lien:hover,
+.lien:focus {
+	color:#222;
+	outline-width: 0;
+}
+
+:link,
+:visited 	{
+	text-decoration: none;
+}
+
+/*cellule cliquable */
+td.lien:hover{
+	border-bottom: 1px solid #6f645b;
+}
+
+/*ligne cliquable*/
+tr.lien{
+	/*on desactive la bordure pointill�e par defaut*/
+	border:inherit;
+	color: inherit;/*pas de bleu par défaut sur toute la ligne*/
+}
+tr.lien:hover,
+tr.lien:hover td,
+tr.lien:hover th {
+	/*bordure pleine au survol*/
+	border-bottom: 1px solid #6f645b;
+}
+
+/* bouton d'action visible uniquement au survol de la ligne */
+.tr_hover_act {
+	opacity: 0;
+}
+
+tr:hover .tr_hover_act {
+	opacity: inherit;
+}
+
+/*Boutons d'actions globales */
+.btn,
+.btn_discret,
+.btn_disabled {
+	display: inline-block;
+	height: 26px;
+	line-height: 24px;
+	margin:3px 0px 3px 10px;
+	padding:0px 8px;
+	font-family: 'OpenSansBold',arial,helvetica,sans-serif;
+	text-align:center;
+	border-radius: 4px;
+	transition-property: background-color, color, border;
+	transition-duration: .3s;
+	transition-timing-function: linear;
+}
+
+
+.btn {
+	color:#fff;
+	background-color:#515151;
+	border:1px solid #515151;
+}
+
+.btn:hover, .btn:active, .btn:focus  {
+	background-color:#2D89AF;
+	border-color:#2D89AF;
+	color:#fff;
+}
+
+/*bouton avec un rendu plus discret*/
+.btn_discret {
+	background-color: #fff;
+	color:#515151;
+	border:1px solid #515151;
+	cursor:pointer ;
+}
+
+.btn_discret:hover, .btn_discret:active, .btn_discret:focus {
+	color:#2D89AF;
+	border-color:#2D89AF;
+}
+
+/* Classe "disabled" : bouton non cliquable */
+.btn_disabled, button[disabled=disabled], button:disabled {
+	color:#fff;
+	background-color:#c0b8b1;
+	border:1px solid #c0b8b1;
+	cursor: default !important;
+}
+
+.btn_disabled:hover, button[disabled=disabled]:hover, button:disabled:hover,
+.btn_disabled:active, button[disabled=disabled]:active, button:disabled:active,
+.btn_disabled:focus, button[disabled=disabled]:focus, button:disabled:focus {
+	background-color: #c0b8b1;
+	color: #fff;
+	border:1px solid #c0b8b1;
+}
+
+/* outline sp�cifique des boutons firefox */
+@-moz-document url-prefix() {
+	.btn::-moz-focus-inner,
+	.btn_discret::-moz-focus-inner,
+	.btn_disabled::-moz-focus-inner,
+	button:not(.btn)[class*="pic_"]::-moz-focus-inner,
+	button.act::-moz-focus-inner  {
+	  border: 0;
+	  padding: 0;
+	}
+}
+
+
+/* Liens et boutons d'action */
+button:hover {
+	 cursor: pointer;
+}
+
+a:not([class*="btn"])[class*="pic_"],
+button:not([class*="btn"])[class*="pic_"],
+a.act,
+button.act {
+	border-radius: 4px;
+	background-color: transparent;
+	color:#515151;
+	border: 1px solid #C0B8B1;
+}
+
+a.act,
+a:not([class*="btn"])[class*="pic_"] {
+	padding: 2px 4px;
+	margin-left: 2px;
+	margin-right: 2px;
+	font-size: 0.95em;
+}
+
+button:not([class*="btn"])[class*="pic_"],
+button.act {
+	padding: 2px 3px 3px 4px;
+	margin-left: 2px;
+	margin-right: 2px;
+	min-height:24px; /*important pour les btn dans les entête de tuiles  retaillées, sinon retailler() peut rater l'espace généré par le picto (chrome)*/
+}
+
+/*le bouton act n'a pas de picto, on equilibre son padding*/
+button.act {
+	padding-right: 4px;
+}
+
+/*bouton d'action d�sactiv�*/
+button:not([class*="btn"])[class*="pic_"][disabled=disabled],
+button:not([class*="btn"])[class*="pic_"]:disabled,
+button.act[disabled=disabled],
+button.act:disabled,
+button:not([class*="btn"])[class*="pic_"][disabled=disabled]:hover,
+button:not([class*="btn"])[class*="pic_"]:disabled:hover,
+button.act[disabled=disabled]:hover,
+button.act:disabled:hover {
+	border-color: #FFF;
+	color:#888;
+	outline: none;
+}
+
+/* boutons avec pictos uniquement */
+button[class*="pic_"]:empty {
+	padding: 0 3px;
+}
+
+a[class*="pic_"]:empty {
+	padding: 4px 2px 1px 2px;
+}
+
+button[class*="pic_"]:empty:before,
+a[class*="pic_"]:empty:before {
+	font-size: 18px;
+	line-height: 15px;
+	bottom: -2px;
+}
+
+/* effets de survol */
+a:not([class*="btn"])[class*="pic_"]:hover,
+button:not([class*="btn"])[class*="pic_"]:hover,
+a.act:hover,
+button.act:hover,
+a:not([class*="btn"])[class*="pic_"]:focus,
+button:not([class*="btn"])[class*="pic_"]:focus,
+a.act:focus,
+button.act:focus {
+	border-color: #2D89AF;
+	color: #07A;
+	outline: none;
+	transition: border-color .3s linear, color .3s linear;
+}
+
+
+/* usage de boutons dans une cellule */
+td a[class*="pic_"]:first-child,
+td button[class*="pic_"]:first-child {
+	margin-left: 0;
+}
+
+td a[class*="pic_"]:last-child,
+td button[class*="pic_"]:last-child {
+	margin-right: 0;
+}
+
+/* cas particulier des césures et surcésures */
+.ligne_cesure td a.act:not(:hover), 
+.ligne_cesure td button.act:not(:hover) { 
+	border-color: #515151 
+}
+
+.ligne_surcesure td a.act, 
+.ligne_surcesure td button.act,
+.ligne_surcesure button:not([class*="btn"])[class*="pic_"],
+.ligne_surcesure .lien { 
+	border-color: #FFF;
+	color: #FFF;
+}
+
+ 
+.ligne_surcesure td button.act[disabled=disabled],
+.ligne_surcesure td button.act:disabled { 
+	border: 1px dotted #FFF;
+	color: #FFF;
+	background-color: transparent;
+}
+
+.ligne_cesure td button.act[disabled=disabled],
+.ligne_cesure td button.act:disabled{ 
+	border: 1px dotted #515151;
+	color: #515151;
+	background-color: transparent;
+}
+
+.ligne_surcesure a:not([class*="btn"])[class*="pic_"]:hover,
+.ligne_surcesure button:not([class*="btn"])[class*="pic_"]:hover,
+.ligne_surcesure a.act:hover,
+.ligne_surcesure button.act:hover,
+.ligne_surcesure a:not([class*="btn"])[class*="pic_"]:focus,
+.ligne_surcesure button:not([class*="btn"])[class*="pic_"]:focus,
+.ligne_surcesure a.act:focus,
+.ligne_surcesure button.act:focus {
+	color:#fff;
+	border-color:#fff;
+}
+
+.ligne_surcesure .trier_asc::after, 
+.ligne_surcesure .trier_desc::after, 
+.ligne_surcesure .trier_none::after {
+	color:#fff;
+}
+
+.ligne_surcesure .deplier:before,
+.ligne_surcesure .replier:before,
+.ligne_surcesure .deplier:hover:before, 
+.ligne_surcesure .replier:hover:before, 
+.ligne_surcesure .deplier:focus:before, 
+.ligne_surcesure .replier:focus:before {
+	color:#fff;
+}
+
+
+
+
+
+
+/* Couleurs d'états */
+[class*="pic_"]:not([class*="btn"]).pos:before  { color: #03A698; }
+[class*="pic_"]:not([class*="btn"]).neg:before  { color: #E32B3A; }
+[class*="pic_"]:not([class*="btn"]).avg:before  { color: #FD7501; }
+[class*="pic_"]:not([class*="btn"]).gris:before { color: #888888; }
+[class*="pic_"]:not([class*="btn"]).pos:focus,
+[class*="pic_"]:not([class*="btn"]).pos:hover  { border-color: #03A698; color:#03A698; }
+[class*="pic_"]:not([class*="btn"]).neg:focus,
+[class*="pic_"]:not([class*="btn"]).neg:hover  { border-color: #E32B3A; color:#E32B3A; }
+[class*="pic_"]:not([class*="btn"]).avg:focus,
+[class*="pic_"]:not([class*="btn"]).avg:hover  { border-color: #FD7501; color:#FD7501; }
+[class*="pic_"]:not([class*="btn"]).gris:focus,
+[class*="pic_"]:not([class*="btn"]).gris:hover { border-color: #888888; color:#888888; }
+
+/*actions avec pictos*/
+
+[class*="pic_"].pic_06:before { font-size: 1em; line-height: 1em;}
+[class*="pic_"].pic_08:before { font-size: 1.25em; line-height: 1.25em;}
+[class*="pic_"].pic_16:before { font-size: 1.6em; line-height: 1.6em;}
+[class*="pic_"].pic_20:before { font-size: 2em; line-height: 2em;}
+[class*="pic_"].pic_24:before { font-size: 2.4em; line-height: 2.4em;}
+[class*="pic_"].pic_28:before { font-size: 2.8em; line-height: 2.8em;}
+[class*="pic_"].pic_32:before { font-size: 3.2em; line-height: 1.25em;}
+
+/* .pic_08:before, .pic_16:before, .pic_20:before,
+.pic_24:before, .pic_28:before, .pic_32:before {
+	display: inline-block;
+} */
+
+button[class*="pic_"].pic_16:before,
+button[class*="pic_"].pic_20:before,
+button[class*="pic_"].pic_24:before,
+button[class*="pic_"].pic_28:before,
+button[class*="pic_"].pic_32:before {
+	line-height: 114%; /* laisse une marge d'affichage aux pictos (comme sablier) qui utilisent toute la hauteur dispo */
+	bottom: 0;
+}
+
+button[class*="pic_"].pic_16:before { font-size: 1.6em;}
+button[class*="pic_"].pic_20:before { font-size: 2em;}
+button[class*="pic_"].pic_24:before { font-size: 2.4em;}
+button[class*="pic_"].pic_28:before { font-size: 2.8em;}
+button[class*="pic_"].pic_32:before { font-size: 3.2em;}
+
+button[class*="pic_"].pic_08 { min-height: 21px; padding-left: 4px; padding-right: 4px;}
+button[class*="pic_"].pic_08:before { font-size: 1em; bottom:-1px}
+
+button[class*="pic_"].pic_06 { min-height: 18px; padding-left: 4px; padding-right: 4px;}
+button[class*="pic_"].pic_06:before { font-size: .8em; bottom:0}
+
+[class*="pic_"]:not(:empty):before {
+	left:-3px;
+}
+
+
+
+.pic_param:before	{content:"\e641";} /* parametrer */
+.pic_downld:before {content:"\e902";} /* t�l�charger */
+.pic_upload:before {content:"\e901";} /* charger */
+.pic_trash:before {content:"\e642";} /* supprimer */
+.pic_cal:before {content:"\e610"; font-size:19px;} /* calendrier */
+.pic_edit:before {content:"\e630";} /* modifier */
+.pic_detail:before {content:"\e907";} /* details */
+.pic_power:before {content:"\e63b";} /* connexion */
+.pic_plus:before {content:"\e632";} /* dupliquer / incr�menter */
+.pic_moins:before {content:"\e62c"; top: 3px;} /* dupliquer / incr�menter */
+.pic_suiv:before {content:"\e637";}
+.pic_prec:before {content:"\e624";}
+.pic_oui:before {content:"\e903";}
+.pic_non:before {content:"\e904";}
+.pic_interdit:before {content:"\e92a";}
+.pic_refresh:before {content:"\e911";}
+.pic_rech:before {content:"\e908";}
+.pic_pj:before {content:"\e600";}
+.pic_mail:before {content:"\e628";}
+.pic_notif:before {content:"\e905";}
+.pic_copier:before {content:"\e90c";}
+.pic_afficher:before {content:"\e916";}
+.pic_masquer:before {content:"\e917";}
+.pic_bloque:before {content:"\e90d";}
+.pic_hausse:before {content:"\e64e";}
+.pic_baisse:before {content:"\e655";}
+.pic_stable:before {content:"\e650";}
+.pic_futur:before {content:"\e912";}
+.pic_passe:before {content:"\e913";}
+.pic_objectif:before {content:"\e92d";}
+.pic_alarme:before {content:"\e90a";}
+.pic_alarmeoff:before {content:"\e909";}
+.pic_photo:before {content:"\e91b";}
+.pic_jauge:before {content:"\e613";}
+.pic_graph:before {content:"\e961e"; bottom:-4px;}
+.pic_doc:before {content:"\e90e";}
+.pic_euro:before {content:"\e914";}
+.pic_user:before {content:"\e90f";}
+.pic_users:before {content:"\e910"; font-size:20px;}
+.pic_role:before {content:"\e900"; font-size:20px;}
+.pic_dossier:before {content:"\e61d"; font-size:20px;}
+.pic_raccourcis:before {content:"\e60a"; font-size:20px;}
+.pic_ordinateur:before {content:"\e614"; font-size:20px;}
+.pic_bdd:before {content:"\e91c"; font-size:20px;}
+.pic_serveur:before {content:"\e91d"; font-size:20px;}
+.pic_magasin:before {content:"\e91a"; font-size:20px;}
+.pic_depot:before {content:"\e919"; font-size:20px;}
+.pic_stock:before {content:"\e918"; font-size:20px;}
+.pic_carton:before {content:"\e659"; font-size:20px;}
+.pic_camion:before {content:"\e654"; font-size:20px;}
+.pic_ensemble:before {content:"\e657";}
+.pic_unite:before {content:"\e64d";}
+.pic_tel:before {content:"\e915";}
+.pic_accueil:before {content:"\e621";}
+.pic_art_remplacant:before {content:"\e921";}
+.pic_art_remplace:before {content:"\e922";}
+.pic_art_remplacant_remplace:before {content:"\e923";}
+.pic_excel_fichier:before {content:"\e91f";}
+.pic_excel_logo:before {content:"\e925";}
+.pic_pdf_fichier:before {content:"\e926";}
+.pic_pdf_logo:before {content:"\e927";}
+.pic_csv_fichier:before {content:"\e928";}
+.pic_sablier:before {content:"\e91e";}
+.pic_filtre:before {content:"\e92c"; font-size:14px;}
+.pic_print:before {content:"\e929";}
+.pic_dragdrop:before {
+	content:"\e924";
+	/* bottom: 0; : supprim� : decale le picto vers le haut lorsqu'il est dans un span */
+	cursor: move;
+	font-size: 20px;
+}
+
+/* coch� / d�coch� */
+a.pic_coche,
+a.pic_decoche,
+button.pic_coche:not(.btn),
+button.pic_decoche:not(.btn) {
+	border: 0px;
+}
+
+.pic_coche:before,
+a.pic_decoche:hover:before,
+button.pic_decoche:hover:before  {
+	content:"\e634";
+}
+
+.pic_decoche:before,
+a.pic_coche:hover:before,
+button.pic_coche:hover:before {
+	content:"\e635";
+}
+
+
+/* bloque / debloque*/
+.pic_bloque:before {content:"\e90d";}
+.pic_debloque:before {content:"\e90d";opacity: 0.5;}
+
+button.pic_debloque:before,
+a.pic_debloque:before,
+button.pic_bloque:hover:before,
+a.pic_bloque:hover:before {
+	opacity: 1;
+}
+
+button.pic_debloque:hover,
+a.pic_debloque:hover  {
+	border-color: #c0b8b1;
+}
+button.pic_bloque:before,
+a.pic_bloque:before  {
+	opacity: 0.5;
+}
+
+button.pic_debloque:hover:before,
+a.pic_debloque:hover:before{
+	opacity: 0.3;
+}
+
+
+/* info / aide /erreur */
+.pic_info:before{
+	content:"\e906";
+}
+
+.pic_aide:before {
+	content:"\e636";
+}
+
+.pic_alerte:before {
+	content:"\e618";
+	color:#E32B3A;
+}
+
+.bulle{
+	border-radius: 12px;
+	padding-left: 3px;
+	padding-right: 3px;
+	cursor: help;
+}
+
+.bulle[class*="pic_"]:before {
+    font-size: 15px;
+    letter-spacing: -2px;
+	left:-1px;
+}
+
+.pic_info.bulle,
+.pic_aide.bulle {
+	color: #fff;
+	/* SIP background-color: #444*/
+	background-color: #2D89AF;
+}
+
+.pic_alerte.bulle {
+	background-color:#F2DDDD;
+}
+
+
+/* categories de produits*/
+.pic_e:before,
+.pic_a:before,
+.pic_b:before,
+.pic_c:before {
+	border-radius: 12px;
+	color: #fff;
+	font-size: 12px;
+	padding: 2px 3px 3px 3px;
+	bottom:0px;
+}
+
+.pic_e:before {
+	content:"\e64f";
+	background-color: #1e8b6e;
+}
+.pic_a:before {
+	content:"\e64b";
+	background-color: #1e8b6e;
+}
+.pic_b:before {
+	content:"\e653";
+	background-color: #fd7501;
+}
+.pic_c:before {
+	content:"\e64a";
+	background-color: #e32b3a;
+}
+
+
+a.pic_e:before,
+button.pic_e:before,
+a.pic_a:before,
+button.pic_a:before,
+a.pic_b:before,
+button.pic_b:before,
+a.pic_c:before,
+button.pic_c:before {
+	font-size: 15px;
+	background-color: transparent;
+	color: inherit;
+	padding: 0;
+	bottom:-1px;
+}
+
+a.pic_e:hover:before,
+button.pic_e:hover:before,
+a.pic_a:hover:before,
+button.pic_a:hover:before,
+a.pic_b:hover:before,
+button.pic_b:hover:before,
+a.pic_c:hover:before,
+button.pic_c:hover:before {
+		color:#fff;
+}
+
+a.pic_e:hover,
+button.pic_e:hover,
+a.pic_a:hover,
+button.pic_a:hover {
+		background-color: #1e8b6e;
+}
+
+a.pic_b:hover,
+button.pic_b:hover {
+		background-color: #fd7501;
+}
+
+a.pic_c:hover,
+button.pic_c:hover {
+		background-color: #e32b3a;
+}

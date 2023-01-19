@@ -1,0 +1,254 @@
+/**************** ENTETE & BANDE BLANCHE **************/
+
+/***** bande d'ent�te *****/
+.page_entete {
+	width:100%;
+	min-width:1200px;
+	height:40px;
+	position:relative;
+	color:#fff;
+}
+
+.page_entete span,
+.page_entete a,
+.page_entete a:before {
+	color:#fff;
+	opacity: 0.7;
+	transition: opacity .3s linear;
+}
+
+.page_entete a:hover,
+.page_entete a:focus,
+.page_entete a:active,
+.page_entete a:hover:before,
+.page_entete a:focus:before,
+.page_entete a:active:before {
+	opacity:1;
+}
+
+.bloc_entete {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	width:1170px;
+	padding-bottom:0px;
+	height: 40px;
+}
+
+/* menu � droite de l'ent�te */
+.menu_entete {
+	display: table;
+	float: right;
+	position: relative;
+	padding-top: 3px;
+	height: 40px;
+}
+
+.menu_entete > a,  .menu_entete > span {
+	display: table-cell;
+	vertical-align: middle;
+	padding: 0;
+}
+
+/* surcharge sp�cifiques aux classes de pictos par defaut */
+.menu_entete > a[class*="pic_"],
+.menu_entete > span[class*="pic_"] {
+	padding: 0;
+	min-width: 40px;
+	text-align: center;
+	border: none;
+	color:#fff;
+}
+
+.menu_entete > a[class*="pic_"]:hover,
+.menu_entete > span[class*="pic_"]:hover {
+	color:#fff;
+}
+
+
+.menu_entete > a[class*="pic_"]:before,
+.menu_entete > span[class*="pic_"]:before {
+	font-size: 28px;
+}
+
+/* Pictos de base de l'ent�te */
+
+/* deconnexion */
+.menu_deconnection {
+	text-align: center;
+	width: 40px;
+}
+
+
+/* Libell� de compte utilisateur */
+.menu_moncompte {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+
+
+
+/***** bande blanche *****/
+.bande_blanche {
+	width:100%;
+	height:70px;
+	position:relative;
+	overflow: hidden; /*important pour �viter les d�bordements des blocs blancs */
+}
+
+/* spinner Ajax de l'�cran */
+.bloc_entete_load {
+	position: fixed;
+	top: 50px;
+	left: 20px;
+}
+
+/* Bandeau blanc en haut de page */
+.bandeau {
+	position:relative;
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 162px;
+	padding-top: 12px;
+	width:1150px;
+	height:75px;
+	color:#847871;
+}
+
+/*bandes blanches de fond � gauche(before) et � droite(after) des triangles*/
+.bandeau:before,
+.bandeau:after {
+	content:"";
+	background-color: #fff;
+	display:block;
+	position: absolute;
+	top:0;
+	height: 100%;
+	z-index: -1;
+}
+
+.bandeau:before {
+	left: -600px;
+	width: 540px;
+}
+
+.bandeau:after {
+	left: 109px;
+	width: 1600px;
+}
+
+/* decoupe en deux triangles sous le logo */
+.bandeau_triangle{
+	height:100%;
+	margin: 0 auto;
+	width: 0px;
+	background-color: #fff;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: -1;
+}
+
+.bandeau_triangle:after {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 75px;
+	border-bottom: 75px solid #fff;
+	border-left: 34px solid transparent;
+	border-right: 30px solid transparent;
+}
+
+.bandeau_triangle:before {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -90px;
+	border-bottom: 75px solid #fff;
+	border-left: 30px solid transparent;
+	border-right: 200px solid transparent;
+}
+
+.bandeau_gauche, .bandeau_droit {
+	display: table-cell;
+}
+
+.bandeau_gauche {
+	vertical-align: top;
+}
+
+.bandeau_droit {
+	/* Fixe l'alignement vertical par défaut divergent entre Chrome (haut) et Firefox(milieu)*/
+	vertical-align: middle;
+}
+
+/* Titre du bandeau */
+.bandeau_titre	{
+	display:inline-block;
+	position: relative;
+	width: 100%;
+	height: 1.8em;
+}
+
+h1 {
+	font-size:1.4em;
+	font-family:'OpenSansBold',sans-serif;
+	margin: 0;
+	letter-spacing: -0.02em;
+	/*l'espace du titre est limit� � une ligne en hauteur*/
+	display: inline-block;
+	max-height: 1.25em;
+	overflow: hidden;
+}
+
+/* chevron retour */
+.bandeau_titre .retour {
+	position: absolute;
+	left: -45px;
+	top:-8px;
+	padding: 10px;
+
+}
+
+/* barre d'etapes */
+.bandeau_titre .etapes {
+	float: right;
+	margin-right: 15px;
+}
+
+/* Sous-titre du bandeau */
+.bandeau_txt	{
+	margin-top:5px;
+	line-height: 1.1em;
+}
+
+/* barre d'�tape dans l'entete*/
+.bandeau_txt .etapes {
+	display: inline-block;
+	margin-left: -15px;
+	margin-top: 9px;
+}
+
+
+
+/********* IMPRESSION *********/
+@media print {
+
+	.connexe,
+	.bandeau_triangle,
+	.menu_entete {
+		display: none;
+	}
+
+	.bandeau,
+	.bloc_entete {
+		padding: 0;
+		margin: 0;
+		width:100%;
+	}
+
+}
